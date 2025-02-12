@@ -1,13 +1,14 @@
 // Jody Wang 
 //Feb 10 2025 mon
 
+//one circle going down
+
 //built in variables:
 //     -mouseX, mouseY: these are the coordinates for your mouse pointer
 
 
 //define your own variables here
 int y; //integer
-int grey;
 
 void setup() {
   size(600, 600);
@@ -15,9 +16,11 @@ void setup() {
 } //-------end of setup-------- turns on active mode
 
 
-void draw() { //60 pictures one second 
-background(grey);
-  ellipse(300, 300, 200, 200); 
-  y = y + 6; //replace what x was with its +1 //how much it adds means its speed
-  grey = grey +2;
+void draw() { //1 pictures one second (1 pixel/second)
+background(255);
+  ellipse(300, y, 200, 200); 
+  y = y + 1; //replace what x was with its +1 //how much it adds means its speed
+  if(y > 700) { 
+   y=-100;
+  }
 } //------end of draw---------
