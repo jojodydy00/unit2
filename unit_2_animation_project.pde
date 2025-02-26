@@ -17,6 +17,7 @@ int cp;
 
 int o;
 int ob;
+int oc;
 
 void setup() { // --------------------------
   size(800, 600); // x y
@@ -31,6 +32,7 @@ void setup() { // --------------------------
   
   o = 0;
   ob = 400;
+  oc = -400;
 } //--------------end setup----------------- (nothing should go outside of this)
 
 
@@ -69,22 +71,35 @@ println(mouseX, mouseY);
     bx = -100;
   }
 
-//road 
+//road  contains problem*
 circle(o, 400, 100);
 circle(o+100, 400, 100); //100
 circle(o+200, 400, 100); //200
 circle(o+300, 400, 100); //300
 circle(o+400, 400, 100); //400
-circle(ob+500, 400, 100); //500
-circle(ob+600, 400, 100); //600
-circle(ob+700, 400, 100); //700
-circle(ob+800, 400, 100); //800
+
+circle(ob+100, 400, 100); //500
+circle(ob+200, 400, 100); //600
+circle(ob+300, 400, 100); //700
+circle(ob+400, 400, 100); //800
+circle(ob, 400, 100);
+
+circle(oc+100, 400, 100);
+circle(oc+200, 400, 100);
+circle(oc+300, 400, 100);
+circle(oc+400, 400, 100);
+circle(oc, 400, 100);
 o = o + 2;
 ob = ob + 2;
+oc = oc + 2;
 if(o > 800) {
-if(ob > 800) 
-  o = -400;
+   o = -400;
+}
+if(ob > 800) {
   ob = -400;
+}
+if(oc > 800) {
+  oc = -400;
 }
 
 //ground
@@ -92,6 +107,7 @@ if(ob > 800)
   rect(0, 400, 800, 200);
   
 //ground surface
+strokeWeight(1);
 stroke(77,77,77);
 fill(90, 90, 90);
 arc(ap+161, 400, 100, 100, radians(0), radians(180)); //350
@@ -110,6 +126,7 @@ bp = bp + 2;
 if(bp > 800) {
 bp = -400;
 }
+strokeWeight(1);
 stroke(77, 77, 77);
 arc(cp+200, 400, 100, 100, radians(0), radians(180));
 ellipse(cp+280, 500, 70, 70);
@@ -119,5 +136,25 @@ cp = cp + 2;
 if(cp > 800) {
   cp = -400;
 }
+//spaceship
+fill(162, 209, 207);
+strokeWeight(8);
+ellipse(150, 400, 180, 90);
 
+//top part
+stroke(242, 236, 44);
+fill(242, 236, 44);
+ellipse(150, 440, 280, 100);
+//middle part
+stroke(162, 209, 207);
+fill(162, 209, 207);
+ellipse(150, 470, 180, 70);
+//bottom part
+noStroke();
+fill(119, 153, 155);
+ellipse(150, 457, 171, 50);
+//lights
+stroke(162, 209, 211);
+line(40, 550, 70, 500);
+line(240, 500, 270, 550);
 } //-------------- end of draw--------------- (nothing should go outside of this)
