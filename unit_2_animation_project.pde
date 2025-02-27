@@ -19,6 +19,7 @@ int o;
 int ob;
 int oc;
 
+int ship;
 void setup() { // --------------------------
   size(800, 600); // x y
   ax =0;
@@ -33,6 +34,8 @@ void setup() { // --------------------------
   o = 0;
   ob = 400;
   oc = -400;
+   
+  ship = 800;
 } //--------------end setup----------------- (nothing should go outside of this)
 
 
@@ -136,25 +139,35 @@ cp = cp + 2;
 if(cp > 800) {
   cp = -400;
 }
-//spaceship
+
+//spaceship (moved all y up 300)
 fill(162, 209, 207);
 strokeWeight(8);
-ellipse(150, 400, 180, 90);
 
 //top part
+ellipse(ship-150, 370, 180, 90); 
+
+//middle part
 stroke(242, 236, 44);
 fill(242, 236, 44);
-ellipse(150, 440, 280, 100);
-//middle part
+ellipse(ship-150, 410, 280, 100);
+
+//bottom part
 stroke(162, 209, 207);
 fill(162, 209, 207);
-ellipse(150, 470, 180, 70);
-//bottom part
+ellipse(ship-150, 440, 180, 70); 
+
+//shadow
 noStroke();
 fill(119, 153, 155);
-ellipse(150, 457, 171, 50);
+ellipse(ship-150, 427, 171, 50);
+
 //lights
 stroke(162, 209, 211);
-line(40, 550, 70, 500);
-line(240, 500, 270, 550);
+line(ship-40, 520, ship-70, 470); 
+line(ship-240, 470, ship-270, 520); 
+ship = ship - 2;
+if(ship < 0) {
+  ship = 1200;
+}
 } //-------------- end of draw--------------- (nothing should go outside of this)
